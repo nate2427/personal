@@ -2,17 +2,31 @@ import React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./Componemts/Landing/landing";
+import { Paper, ThemeProvider, createMuiTheme } from "@material-ui/core";
+
+const ThemeContext = React.createContext();
 
 export default function App() {
+  const [darkModeOn, setDarkModeOn] = React.useState(true);
+  const theme = createMuiTheme({
+    palette: {
+      type: darkModeOn ? "dark" : "light",
+    },
+  });
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route path="/resume" render={() => <h1>Resume</h1>} />
-        <Route path="/portfolio" render={() => <h1>Portfolio</h1>} />
-        <Route to="/about" render={() => <h1>About</h1>} />
-        <Route to="/contact" render={() => <h1>Contact</h1>} />
-      </Switch>
-    </Router>
+    <ThemeContext.Provider
+      value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}
+    >
+      <ThemeProvider theme={theme}>
+        <Paper square style={{ minHeight: "100vh" }}>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Landing} />
+            </Switch>
+          </Router>
+        </Paper>
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }
