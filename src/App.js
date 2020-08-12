@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./Componemts/Landing/landing";
 import { Paper, ThemeProvider, createMuiTheme } from "@material-ui/core";
 
-const ThemeContext = React.createContext();
+export const ThemeContext = React.createContext();
 
 export default function App() {
   const [darkModeOn, setDarkModeOn] = React.useState(true);

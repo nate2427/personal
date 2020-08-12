@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -17,7 +17,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery, Grid } from "@material-ui/core";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+
+import { ThemeContext } from "../../App";
 
 const drawerWidth = 240;
 
@@ -46,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: "none",
+    visibility: "hidden",
   },
   drawer: {
     width: drawerWidth,
@@ -88,6 +91,7 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const screenSize = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyles();
+  const { darkModeOn, setDarkModeOn } = useContext(ThemeContext); // dark mode
 
   const [open, setOpen] = React.useState(false);
 
@@ -110,19 +114,26 @@ export default function PersistentDrawerLeft() {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-              Persistent drawer
-            </Typography>
+          <Toolbar variant="dense">
+            <Grid container justify="center">
+              <Grid container item xs="12" justify="space-between">
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  className={clsx(classes.menuButton, open && classes.hide)}
+                >
+                  <MenuIcon fontSize="large" />
+                </IconButton>
+                <IconButton
+                  aria-label="dark mode"
+                  onClick={() => setDarkModeOn(!darkModeOn)}
+                >
+                  <Brightness4Icon fontSize="large" />
+                </IconButton>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
       ) : null}
@@ -160,6 +171,20 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
+          {screenSize ? (
+            ""
+          ) : (
+            <ListItem
+              button
+              onClick={() => setDarkModeOn(!darkModeOn)}
+              className
+            >
+              <ListItemIcon>
+                <Brightness4Icon fontSize="default" />
+              </ListItemIcon>
+              <ListItemText primary={"Dark Mode"} />
+            </ListItem>
+          )}
         </List>
       </Drawer>
       <main
