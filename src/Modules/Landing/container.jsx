@@ -15,7 +15,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useMediaQuery, Grid, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
-import { ScrollTo } from "react-scroll-to";
+import scrollToComponent from "react-scroll-to-component";
 
 import { ThemeContext } from "../../App";
 import { links as navLinks } from "./navbarLinks";
@@ -29,12 +29,23 @@ import Portfolio from "./components/portfolio/portfolio";
 import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
 import Hobbies from "./components/hobbies/hobbies";
+import { useRef } from "react";
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const screenSize = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyles();
   const { darkModeOn, setDarkModeOn } = useContext(ThemeContext); // dark mode
+  const refs = {
+    home: useRef(),
+    about: useRef(),
+    resume: useRef(),
+    services: useRef(),
+    portfolio: useRef(),
+    testimonials: useRef(),
+    hobbies: useRef(),
+    contact: useRef(),
+  };
 
   const [open, setOpen] = React.useState(false);
 
@@ -104,14 +115,18 @@ export default function PersistentDrawerLeft() {
         ) : (
           ""
         )}
+
         <List className={`${classes.list}`}>
           {navLinks.map((navItem, index) => (
             <ListItem
               button
               key={index}
               onClick={() => {
-                console.log("yooo");
-                // scroll({ id: navItem.id, y: 500 });
+                // refs[navItem.id].current.scrollIntoView({
+                //   behavior: "smooth",
+                //   block: "center",
+                // });
+                scrollToComponent(refs[navItem.id].current);
               }}
             >
               <ListItemIcon>{navItem.icon}</ListItemIcon>
@@ -143,6 +158,7 @@ export default function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <main
+        id="main"
         className={clsx(
           classes.content,
           {
@@ -156,13 +172,21 @@ export default function PersistentDrawerLeft() {
         {!screenSize ? "" : <div className={classes.drawerHeader} />}
         <Grid container>
           <Hero />
+          <div ref={refs["home"]}></div>
           <About />
+          <div ref={refs["about"]}></div>
           <Resume />
+          <div ref={refs["resume"]}></div>
           <Services />
+          <div ref={refs["services"]}></div>
           <Portfolio />
+          <div ref={refs["portfolio"]}></div>
           <Testimonials />
+          <div ref={refs["testimonials"]}></div>
           <Hobbies />
+          <div ref={refs["hobbies"]}></div>
           <Contact />
+          <div ref={refs["contact"]}></div>
         </Grid>
       </main>
     </div>

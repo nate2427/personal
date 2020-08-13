@@ -13,7 +13,6 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
-      id="about"
     >
       <Typography variant="h1">About</Typography>
     </Grid>
