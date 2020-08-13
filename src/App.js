@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./Componemts/Landing/landing";
+import Landing from "./Modules/Landing/landing";
 import { Paper, ThemeProvider, createMuiTheme } from "@material-ui/core";
 
 export const ThemeContext = React.createContext();
@@ -32,8 +32,6 @@ export default function App() {
       },
     });
   }
-
-  console.log(theme);
   return (
     <ThemeContext.Provider
       value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}

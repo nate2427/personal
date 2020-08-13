@@ -6,7 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -16,12 +15,13 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { useMediaQuery, Grid, Button } from "@material-ui/core";
+import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 import { ThemeContext } from "../../App";
+import { links as navLinks } from "./navbarLinks";
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,6 +83,13 @@ const useStyles = makeStyles((theme) => ({
   },
   rmPadding: {
     padding: "1rem 2rem",
+  },
+  list: {
+    marginTop: "auto",
+    marginBottom: "auto",
+  },
+  listItem: {
+    fontSize: "2rem",
   },
 }));
 
@@ -160,14 +167,17 @@ export default function PersistentDrawerLeft() {
         ) : (
           ""
         )}
-        <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        <List className={`${classes.list}`}>
+          {navLinks.map((navItem, index) => (
+            <ListItem button key={index}>
+              <ListItemIcon>{navItem.icon}</ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography className={`${classes.listItem}`}>
+                    {navItem.name}
+                  </Typography>
+                }
+              />
             </ListItem>
           ))}
           {screenSize ? (
@@ -175,9 +185,15 @@ export default function PersistentDrawerLeft() {
           ) : (
             <ListItem button onClick={() => setDarkModeOn(!darkModeOn)}>
               <ListItemIcon>
-                <Brightness4Icon fontSize="default" />
+                <Brightness4Icon fontSize="large" />
               </ListItemIcon>
-              <ListItemText primary={"Dark Mode"} />
+              <ListItemText
+                primary={
+                  <Typography className={`${classes.listItem}`}>
+                    Dark Mode
+                  </Typography>
+                }
+              />
             </ListItem>
           )}
         </List>
