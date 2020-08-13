@@ -6,41 +6,47 @@ import BuildIcon from "@material-ui/icons/Build";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import FeaturedPlayListIcon from "@material-ui/icons/FeaturedPlayList";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
+import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
 
 export const links = [
   {
     name: "Home",
-    link: "/#home",
+    id: "home",
     icon: <HomeIcon fontSize="large" />,
   },
   {
     name: "About",
-    link: "/#about",
+    id: "about",
     icon: <EmojiPeopleIcon fontSize="large" />,
   },
   {
     name: "Resume",
-    link: "/#resume",
+    id: "resume",
     icon: <MenuBookIcon fontSize="large" />,
   },
   {
     name: "Services",
-    link: "/#services",
+    id: "services",
     icon: <BuildIcon fontSize="large" />,
   },
   {
     name: "Portfolio",
-    link: "/#portfolio",
+    id: "portfolio",
     icon: <DashboardIcon fontSize="large" />,
   },
   {
     name: "Testimonials",
-    link: "/#testimonials",
+    id: "testimonials",
     icon: <FeaturedPlayListIcon fontSize="large" />,
   },
   {
+    name: "Hobbies",
+    id: "hobbies",
+    icon: <SportsBasketballIcon fontSize="large" />,
+  },
+  {
     name: "Contact",
-    link: "/#contact",
+    id: "contact",
     icon: <ContactPhoneIcon fontSize="large" />,
   },
 ];

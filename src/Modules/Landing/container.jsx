@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -13,85 +13,22 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core";
+import { useMediaQuery, Grid, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
+import { ScrollTo } from "react-scroll-to";
 
 import { ThemeContext } from "../../App";
 import { links as navLinks } from "./navbarLinks";
-
-const drawerWidth = 200;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarAndMain: {
-    width: `calc(100% - ${drawerWidth}px)`,
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  hide: {
-    visibility: "hidden",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerGone: { width: 0 },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  rmPadding: {
-    padding: "1rem 2rem",
-  },
-  list: {
-    marginTop: "auto",
-    marginBottom: "auto",
-  },
-  listItem: {
-    fontSize: "2rem",
-  },
-}));
+import { useStyles } from "./styles";
+// components of the landing page
+import About from "./components/about/about";
+import Hero from "./components/hero/hero";
+import Resume from "./components/resume/resume";
+import Services from "./components/services/services";
+import Portfolio from "./components/portfolio/portfolio";
+import Testimonials from "./components/testimonials/testimonials";
+import Contact from "./components/contact/contact";
+import Hobbies from "./components/hobbies/hobbies";
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -122,7 +59,7 @@ export default function PersistentDrawerLeft() {
         >
           <Toolbar variant="dense">
             <Grid container justify="center">
-              <Grid container item xs="12" justify="space-between">
+              <Grid container item justify="space-between">
                 <IconButton
                   color="inherit"
                   aria-label="open drawer"
@@ -169,7 +106,14 @@ export default function PersistentDrawerLeft() {
         )}
         <List className={`${classes.list}`}>
           {navLinks.map((navItem, index) => (
-            <ListItem button key={index}>
+            <ListItem
+              button
+              key={index}
+              onClick={() => {
+                console.log("yooo");
+                // scroll({ id: navItem.id, y: 500 });
+              }}
+            >
               <ListItemIcon>{navItem.icon}</ListItemIcon>
               <ListItemText
                 primary={
@@ -210,13 +154,16 @@ export default function PersistentDrawerLeft() {
         )}
       >
         {!screenSize ? "" : <div className={classes.drawerHeader} />}
-        <Button
-          onClick={() => setDarkModeOn(!darkModeOn)}
-          variant="contained"
-          color="primary"
-        >
-          click me
-        </Button>
+        <Grid container>
+          <Hero />
+          <About />
+          <Resume />
+          <Services />
+          <Portfolio />
+          <Testimonials />
+          <Hobbies />
+          <Contact />
+        </Grid>
       </main>
     </div>
   );
