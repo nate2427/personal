@@ -8,12 +8,32 @@ export const ThemeContext = React.createContext();
 
 export default function App() {
   const [darkModeOn, setDarkModeOn] = React.useState(true);
-  const theme = createMuiTheme({
-    palette: {
-      type: darkModeOn ? "dark" : "light",
-    },
-  });
+  const theme = getTheme({});
+  function getTheme(theme) {
+    return createMuiTheme({
+      palette: {
+        type: darkModeOn ? "dark" : "light",
+        primary: {
+          main: darkModeOn ? "#242f46" : "#495F8C",
+        },
+        secondary: {
+          main: darkModeOn ? "#792e02" : "#F25C05",
+        },
+        background: {
+          default: darkModeOn ? "#000" : "#fff",
+        },
+      },
+      typography: {
+        fontFamily: `"Oswald", "Roboto", "Helvetica", "Arial", sans-serif`,
+        fontSize: 16,
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+      },
+    });
+  }
 
+  console.log(theme);
   return (
     <ThemeContext.Provider
       value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}

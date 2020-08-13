@@ -6,7 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -17,7 +16,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { useMediaQuery, Grid } from "@material-ui/core";
+import { useMediaQuery, Grid, Button } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 import { ThemeContext } from "../../App";
@@ -174,11 +173,7 @@ export default function PersistentDrawerLeft() {
           {screenSize ? (
             ""
           ) : (
-            <ListItem
-              button
-              onClick={() => setDarkModeOn(!darkModeOn)}
-              className
-            >
+            <ListItem button onClick={() => setDarkModeOn(!darkModeOn)}>
               <ListItemIcon>
                 <Brightness4Icon fontSize="default" />
               </ListItemIcon>
@@ -199,6 +194,13 @@ export default function PersistentDrawerLeft() {
         )}
       >
         {!screenSize ? "" : <div className={classes.drawerHeader} />}
+        <Button
+          onClick={() => setDarkModeOn(!darkModeOn)}
+          variant="contained"
+          color="primary"
+        >
+          click me
+        </Button>
       </main>
     </div>
   );
