@@ -4,8 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import Container from "./container";
 
 const useStyles = makeStyles({
-  landingBackground: {},
-  mainContent: {},
+  container: {
+    height: "100vh",
+  },
 });
 
 const Landing = () => {

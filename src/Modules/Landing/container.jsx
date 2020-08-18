@@ -9,13 +9,12 @@ import List from "@material-ui/core/List";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useMediaQuery, Grid, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
-import scrollToComponent from "react-scroll-to-component";
+import { scroller, Element } from "react-scroll";
 
 import { ThemeContext } from "../../App";
 import { links as navLinks } from "./navbarLinks";
@@ -29,23 +28,12 @@ import Portfolio from "./components/portfolio/portfolio";
 import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
 import Hobbies from "./components/hobbies/hobbies";
-import { useRef } from "react";
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const screenSize = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyles();
   const { darkModeOn, setDarkModeOn } = useContext(ThemeContext); // dark mode
-  const refs = {
-    home: useRef(),
-    about: useRef(),
-    resume: useRef(),
-    services: useRef(),
-    portfolio: useRef(),
-    testimonials: useRef(),
-    hobbies: useRef(),
-    contact: useRef(),
-  };
 
   const [open, setOpen] = React.useState(false);
 
@@ -105,11 +93,7 @@ export default function PersistentDrawerLeft() {
         {screenSize ? (
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
+              <ChevronLeftIcon fontSize="large" />
             </IconButton>
           </div>
         ) : (
@@ -122,11 +106,11 @@ export default function PersistentDrawerLeft() {
               button
               key={index}
               onClick={() => {
-                // refs[navItem.id].current.scrollIntoView({
-                //   behavior: "smooth",
-                //   block: "center",
-                // });
-                scrollToComponent(refs[navItem.id].current);
+                scroller.scrollTo(navItem.id, {
+                  containerId: "scrollcntr",
+                  smooth: true,
+                  duration: 900,
+                });
               }}
             >
               <ListItemIcon>{navItem.icon}</ListItemIcon>
@@ -158,7 +142,6 @@ export default function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <main
-        id="main"
         className={clsx(
           classes.content,
           {
@@ -169,25 +152,29 @@ export default function PersistentDrawerLeft() {
           }`
         )}
       >
-        {!screenSize ? "" : <div className={classes.drawerHeader} />}
-        <Grid container>
-          <Hero />
-          <div ref={refs["home"]}></div>
-          <About />
-          <div ref={refs["about"]}></div>
-          <Resume />
-          <div ref={refs["resume"]}></div>
-          <Services />
-          <div ref={refs["services"]}></div>
-          <Portfolio />
-          <div ref={refs["portfolio"]}></div>
-          <Testimonials />
-          <div ref={refs["testimonials"]}></div>
-          <Hobbies />
-          <div ref={refs["hobbies"]}></div>
-          <Contact />
-          <div ref={refs["contact"]}></div>
-        </Grid>
+        <div name="container" id="mainContainer">
+          <Grid
+            container
+            className={classes.componentContainer}
+            id="scrollcntr"
+          >
+            <Hero />
+            <About />
+            <Element name="about"></Element>
+            <Resume />
+            <Element name="resume"></Element>
+            <Services />
+            <Element name="services"></Element>
+            <Portfolio />
+            <Element name="portfolio"></Element>
+            <Testimonials />
+            <Element name="testimonials"></Element>
+            <Hobbies />
+            <Element name="hobbies"></Element>
+            <Contact />
+            <Element name="contact"></Element>
+          </Grid>
+        </div>
       </main>
     </div>
   );

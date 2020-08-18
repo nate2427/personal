@@ -52,6 +52,9 @@ export const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    // display: "flex",
+    // alignItems: "center",
+    // height: "100vh",
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -69,5 +72,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     fontSize: "2rem",
+  },
+  componentContainer: {
+    height: "95vh",
+    overflowY: "scroll",
   },
 }));

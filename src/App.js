@@ -37,7 +37,7 @@ export default function App() {
       value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}
     >
       <ThemeProvider theme={theme}>
-        <Paper square style={{ minHeight: "100vh" }}>
+        <Paper square style={{ height: "100vh" }}>
           <Router>
             <Switch>
               <Route exact path="/" component={Landing} />
