@@ -88,6 +88,7 @@ export default function PersistentDrawerLeft() {
         open={open}
         classes={{
           paper: classes.drawerPaper,
+          paperAnchorDockedLeft: classes.overWriteBorderColor,
         }}
       >
         {screenSize ? (
@@ -113,7 +114,9 @@ export default function PersistentDrawerLeft() {
                 });
               }}
             >
-              <ListItemIcon>{navItem.icon}</ListItemIcon>
+              <ListItemIcon className={`${classes.icon}`}>
+                {navItem.icon}
+              </ListItemIcon>
               <ListItemText
                 primary={
                   <Typography className={`${classes.listItem}`}>
@@ -127,13 +130,13 @@ export default function PersistentDrawerLeft() {
             ""
           ) : (
             <ListItem button onClick={() => setDarkModeOn(!darkModeOn)}>
-              <ListItemIcon>
+              <ListItemIcon className={`${classes.icon}`}>
                 <Brightness4Icon fontSize="large" />
               </ListItemIcon>
               <ListItemText
                 primary={
                   <Typography className={`${classes.listItem}`}>
-                    Dark Mode
+                    {darkModeOn ? "Light Mode" : "Dark Mode"}
                   </Typography>
                 }
               />

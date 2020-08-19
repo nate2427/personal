@@ -20,7 +20,10 @@ export default function App() {
           main: darkModeOn ? "#792e02" : "#F25C05",
         },
         background: {
-          default: darkModeOn ? "#000" : "#fff",
+          paper: "#242f46",
+        },
+        text: {
+          primary: "#f5f5f5",
         },
       },
       typography: {
@@ -32,6 +35,7 @@ export default function App() {
       },
     });
   }
+  console.log(theme);
   return (
     <ThemeContext.Provider
       value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}

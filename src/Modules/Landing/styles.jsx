@@ -33,6 +33,9 @@ export const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     flexShrink: 0,
   },
+  overWriteBorderColor: {
+    borderRightColor: "rgba(255, 255, 255, 0.12)",
+  },
   drawerGone: { width: 0 },
   drawerPaper: {
     width: drawerWidth,
@@ -76,5 +79,8 @@ export const useStyles = makeStyles((theme) => ({
   componentContainer: {
     height: "95vh",
     overflowY: "scroll",
+  },
+  icon: {
+    color: "#f5f5f5",
   },
 }));
