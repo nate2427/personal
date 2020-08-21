@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
   heroWordsImg: {
     padding: "2rem 2rem 0 2rem",
     [theme.breakpoints.down("sm")]: {
-      padding: "2rem 1rem 0 1rem",
+      padding: "2rem 0rem 0 1rem",
     },
   },
   heroButtons: {
