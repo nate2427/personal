@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Button, Typography, Divider } from "@material-ui/core";
+import { scroller } from "react-scroll";
 
 import { useStyles } from "./styles";
 
@@ -64,6 +65,13 @@ export default function () {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={() => {
+              scroller.scrollTo("portfolio", {
+                containerId: "scrollcntr",
+                smooth: true,
+                duration: 900,
+              });
+            }}
           >
             View Portfolio
           </Button>

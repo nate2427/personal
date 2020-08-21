@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
   heroWordsImg: {
     padding: "2rem 2rem 0 2rem",
     [theme.breakpoints.down("sm")]: {
-      padding: "5rem 1rem 0 1rem",
+      padding: "2rem 1rem 0 1rem",
     },
   },
   heroButtons: {
@@ -23,9 +23,15 @@ export const useStyles = makeStyles((theme) => ({
   heroImage: {
     backgroundImage: `url(${Nate})`,
     [theme.breakpoints.down("sm")]: {
-      minHeight: "60vh",
+      minHeight: "50vh",
     },
-    minHeight: "89vh",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "79vh",
+    },
+    // [theme.breakpoints.down("lg")]: {
+    //   minHeight: "86.2vh",
+    // },
+    minHeight: "88vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
