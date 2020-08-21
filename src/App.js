@@ -7,7 +7,7 @@ import { Paper, ThemeProvider, createMuiTheme } from "@material-ui/core";
 export const ThemeContext = React.createContext();
 
 export default function App() {
-  const [darkModeOn, setDarkModeOn] = React.useState(true);
+  const [darkModeOn, setDarkModeOn] = React.useState(false);
   const theme = getTheme({});
   function getTheme(theme) {
     return createMuiTheme({
@@ -17,7 +17,7 @@ export default function App() {
           main: darkModeOn ? "#242f46" : "#495F8C",
         },
         secondary: {
-          main: darkModeOn ? "#792e02" : "#F25C05",
+          main: darkModeOn ? "#792e02" : "#e15505",
         },
         background: {
           paper: "#242f46",

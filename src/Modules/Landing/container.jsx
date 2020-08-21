@@ -55,6 +55,9 @@ export default function PersistentDrawerLeft() {
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
+          classes={{
+            colorPrimary: classes.appBarAlt,
+          }}
         >
           <Toolbar variant="dense">
             <Grid container justify="center">
@@ -64,13 +67,21 @@ export default function PersistentDrawerLeft() {
                   aria-label="open drawer"
                   onClick={handleDrawerOpen}
                   edge="start"
-                  className={clsx(classes.menuButton, open && classes.hide)}
+                  className={clsx(
+                    classes.menuButton,
+                    open && classes.hide,
+                    classes.icon
+                  )}
                 >
-                  <MenuIcon fontSize="large" />
+                  <MenuIcon fontSize="large" className={`${classes.icon}`} />
                 </IconButton>
+                <Typography variant="h3">
+                  Baker <span className={`${classes.period}`}>.</span>
+                </Typography>
                 <IconButton
                   aria-label="dark mode"
                   onClick={() => setDarkModeOn(!darkModeOn)}
+                  className={`${classes.icon}`}
                 >
                   <Brightness4Icon fontSize="large" />
                 </IconButton>
@@ -82,7 +93,7 @@ export default function PersistentDrawerLeft() {
       <Drawer
         className={`${classes.drawer} ${
           !open && screenSize ? classes.drawerGone : ""
-        }`}
+        } ${screenSize && open ? classes.openNavSmallScreen : ""}`}
         variant={screenSize ? "persistent" : "permanent"}
         anchor="left"
         open={open}
@@ -94,7 +105,7 @@ export default function PersistentDrawerLeft() {
         {screenSize ? (
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon fontSize="large" />
+              <ChevronLeftIcon className={`${classes.icon}`} fontSize="large" />
             </IconButton>
           </div>
         ) : (
@@ -150,9 +161,9 @@ export default function PersistentDrawerLeft() {
           {
             [classes.contentShift]: open,
           },
-          +` ${screenSize && open ? "" : classes.appBarAndMain} ${
+          ` ${screenSize && open ? "" : classes.appBarAndMain} ${
             screenSize && open ? "" : classes.rmMinHeight
-          }`
+          } ${screenSize ? classes.mainSmallScreenAlt : ""}`
         )}
       >
         <div name="container" id="mainContainer">

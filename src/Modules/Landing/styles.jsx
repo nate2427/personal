@@ -12,6 +12,9 @@ export const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
+  appBarAlt: {
+    backgroundColor: "#242f46",
+  },
   appBarAndMain: {
     width: `calc(100% - ${drawerWidth}px)`,
   },
@@ -82,5 +85,18 @@ export const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: "#f5f5f5",
+  },
+  openNavSmallScreen: {
+    position: "absolute",
+  },
+  mainSmallScreenAlt: {
+    padding: 0,
+    paddingTop: "50px",
+  },
+  period: {
+    color:
+      theme.palette.type === "dark"
+        ? theme.palette.secondary.dark
+        : theme.palette.secondary.light,
   },
 }));

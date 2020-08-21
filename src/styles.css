@@ -9,3 +9,6 @@ html {
 #root {
   overflow-y: hidden;
 }
+body {
+  -webkit-text-size-adjust: 100%;
+}
