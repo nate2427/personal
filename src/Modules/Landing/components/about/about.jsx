@@ -1,8 +1,9 @@
 import React from "react";
-import { Typography, Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";
+import { aboutContent as content } from "./about-content";
 
 export default function () {
   const classes = useStyles();
@@ -16,6 +17,11 @@ export default function () {
       xs={12}
     >
       <SectionHeader title="About" description="Creative & Passionate" />
+      <Grid item xs={12}>
+        <Typography className={`${classes.aboutBody}`} variant="body2">
+          {content.aboutBody}
+        </Typography>
+      </Grid>
     </Grid>
   );
 }
