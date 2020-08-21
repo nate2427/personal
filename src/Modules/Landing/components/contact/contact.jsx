@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Grid } from "@material-ui/core";
+import SectionHeader from "../section-header/section-header";
 
 import { useStyles } from "./styles";
 
@@ -15,7 +16,7 @@ export default function () {
       xs={12}
       id="contact"
     >
-      <Typography variant="h1">Contact</Typography>
+      <SectionHeader title="Contact" description="Available for freelance" />
     </Grid>
   );
 }
