@@ -4,6 +4,9 @@ export const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "6px 16px",
   },
+  overrideTimelineRoot: {
+    padding: "6px 0",
+  },
   overridePaper: { backgroundColor: theme.palette.secondary.main },
   title: {
     fontSize: "2rem",
@@ -31,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
   separator: {
     minHeight: "40rem",
     [theme.breakpoints.down("xs")]: {
-      minHeight: "45rem",
+      minHeight: "60rem",
     },
   },
   dateRange: {

@@ -35,7 +35,6 @@ export default function App() {
       },
     });
   }
-  console.log(theme);
   return (
     <ThemeContext.Provider
       value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}

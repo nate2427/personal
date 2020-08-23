@@ -6,20 +6,16 @@ import TimelineConnector from "@material-ui/lab/TimelineConnector";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
-import SchoolIcon from "@material-ui/icons/School";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { useMediaQuery, useTheme } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 
 export default function CustomizedTimeline({ entries, align }) {
   const classes = useStyles();
-  const theme = useTheme();
-  const screenSize = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
-    <Timeline align={align}>
+    <Timeline align={align} classes={{ root: classes.overrideTimelineRoot }}>
       {entries.map((entry, key) => {
         return (
           <TimelineItem key={key}>
@@ -28,21 +24,15 @@ export default function CustomizedTimeline({ entries, align }) {
                 {entry.dateRange}
               </Typography>
             </TimelineOppositeContent>
-            {key !== entries.length - 1 ? (
-              <TimelineSeparator className={`${classes.separator}`}>
-                <TimelineDot color="secondary">
-                  {entry.icon ? entry.icon : <SchoolIcon fontSize="large" />}
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-            ) : (
-              <TimelineSeparator>
-                <TimelineDot color="secondary">
-                  {entry.icon ? entry.icon : <SchoolIcon fontSize="large" />}
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-            )}
+
+            <TimelineSeparator
+              className={`${
+                key !== entries.length - 1 ? classes.separator : ""
+              }`}
+            >
+              <TimelineDot color="secondary">{entry.icon}</TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
 
             <TimelineContent>
               <Paper
