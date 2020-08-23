@@ -19,7 +19,9 @@
     "react-router-scroll": "^0.4.4",
     "react-scripts": "3.0.1",
     "react-scroll": "^1.7.16",
-    "react-scroll-to": "^3.0.0-beta.6"
+    "react-scroll-to": "^3.0.0-beta.6",
+    "react-swipeable-views": "^0.13.9",
+    "react-swipeable-views-utils": "^0.13.9"
   },
   "devDependencies": {
     "typescript": "3.8.3"

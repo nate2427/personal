@@ -36,6 +36,7 @@ export default function MediaControlCard({ service, icon }) {
               variant="body2"
               className={classes.description}
               align="left"
+              key={index}
             >
               {sentence}
             </Typography>

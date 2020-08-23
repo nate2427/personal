@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";
+import Carrousel from "../muiCarrousel/muiCarrousel";
 
 export default function () {
   const classes = useStyles();
@@ -17,6 +18,9 @@ export default function () {
       id="testimonials"
     >
       <SectionHeader title="Testimonials" description="" />
+      <Grid container justify="center">
+        <Carrousel />
+      </Grid>
     </Grid>
   );
 }
