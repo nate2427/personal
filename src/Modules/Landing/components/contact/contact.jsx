@@ -133,7 +133,7 @@ const InputForm = ({ reference }) => {
               }}
             >
               <MenuItem value={"Web Development"}>Web Development</MenuItem>
-              <MenuItem value={"Code Tutoring and/or Teaching"}>
+              <MenuItem value={"Code Tutoring and Teaching"}>
                 Code Tutoring and/or Teaching
               </MenuItem>
               <MenuItem value={"Software Consultation"}>
