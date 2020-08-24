@@ -27,7 +27,7 @@ export default function () {
     },
     {
       icon: <FastfoodIcon className={`${classes.icon}`} />,
-      title: "Eat",
+      title: "Devouring",
     },
     {
       icon: <SportsBasketballIcon className={`${classes.icon}`} />,
