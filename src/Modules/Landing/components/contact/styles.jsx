@@ -7,4 +7,65 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === "dark" ? "#f5f5f5" : "#000",
     padding: "0 2rem",
   },
+  form: {
+    width: "100%",
+  },
+  inputContainer: {
+    padding: "1rem 0",
+  },
+  input: {
+    backgroundColor: theme.palette.type === "dark" ? "#d6d9dc" : "#5e666e",
+    color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+    fontSize: "2rem",
+  },
+  button: {
+    borderRadius: 0,
+    fontSize: "1.7rem",
+  },
+  myInfoContainer: {
+    background:
+      "linear-gradient(166deg, rgba(181,120,6,1) 6%, rgba(73,95,140,1) 64%);",
+  },
+  outerContainer: {
+    padding: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+      paddingTop: "2rem",
+    },
+  },
+  buttonContainer: {
+    justifySelf: "flex-start",
+    padding: "3rem 0",
+  },
+  infoText: {
+    width: "100%",
+    color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+    padding: "1rem 0",
+  },
+  smallerText: {
+    padding: ".5rem 0",
+    fontSize: "1.5rem",
+  },
+  innerContainer: {
+    padding: "2rem",
+  },
+  overrideLabel: {
+    fontSize: "2rem",
+    color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+  },
+  overrideInput: {
+    fontSize: "2rem",
+    color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+  },
+  formControl: {
+    width: "100%",
+  },
+  selectContainer: {
+    // padding-left: '1rem';
+    padding: "1rem",
+  },
+  icon: {
+    color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+    fontSize: "3rem",
+  },
 }));

@@ -17,7 +17,7 @@ export default function () {
       xs={12}
       id="testimonials"
     >
-      <SectionHeader title="Testimonials" description="" />
+      <SectionHeader title="Testimonials" description="Tried & True" />
       <Grid container justify="center">
         <Carrousel />
       </Grid>

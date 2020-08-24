@@ -45,7 +45,6 @@ function SwipeableTextMobileStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleStepChange = (step) => {
-    console.log(step);
     setActiveStep(step);
   };
 
