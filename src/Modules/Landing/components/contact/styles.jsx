@@ -68,4 +68,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
     fontSize: "3rem",
   },
+  sentMessgae: {
+    paddingBottom: "2rem",
+  },
 }));

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, useMediaQuery, useTheme } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
@@ -11,9 +11,6 @@ import SectionHeader from "../section-header/section-header";
 
 export default function () {
   const classes = useStyles();
-  const theme = useTheme();
-
-  const screenSize = useMediaQuery(theme.breakpoints.down("xs"));
 
   const hobbies = [
     {

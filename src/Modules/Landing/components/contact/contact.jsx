@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   Grid,
   TextField,
@@ -6,9 +6,9 @@ import {
   Typography,
   Select,
   MenuItem,
-  InputLabel,
   FormControl,
 } from "@material-ui/core";
+import emailjs from "emailjs-com";
 import SectionHeader from "../section-header/section-header";
 
 import { useStyles } from "./styles";
@@ -16,6 +16,10 @@ import { contactContent as content } from "./content";
 
 export default function () {
   const classes = useStyles();
+  const ref = useRef();
+  const [messageSent, setMessageSent] = useState(false);
+  const [messageSentWithError, setMessageSentWithError] = useState(false);
+
   return (
     <Grid
       container
@@ -28,7 +32,7 @@ export default function () {
     >
       <SectionHeader title="Contact" description="Available for freelance" />
       <Grid container>
-        <InputForm />
+        <InputForm reference={ref} />
         <MyInfo />
       </Grid>
       <Grid
@@ -38,12 +42,52 @@ export default function () {
         justify="flex-start"
         className={`${classes.buttonContainer}`}
       >
+        {messageSent ? (
+          <Grid item xs={12}>
+            <Typography
+              variant="h4"
+              color="primary"
+              className={`${classes.sentMessgae}`}
+            >
+              Sent!
+            </Typography>
+          </Grid>
+        ) : null}
+
+        {messageSentWithError ? (
+          <Grid item xs={12}>
+            <Typography
+              variant="h4"
+              color="error"
+              className={`${classes.sentMessgae}`}
+            >
+              Error Sending Message !
+            </Typography>
+          </Grid>
+        ) : null}
+
         <Grid item xs={12} md={3}>
           <Button
             className={`${classes.button}`}
             variant="contained"
             color="primary"
             fullWidth
+            onClick={(e) => {
+              const service_id = "gmail";
+              const template_id = "template_vwi236bZ";
+              const user_id = "user_4Sd3PL1XIEE0y4imZuIR3";
+
+              emailjs
+                .sendForm(service_id, template_id, ref.current, user_id)
+                .then(
+                  () => {
+                    setMessageSent(true);
+                  },
+                  (error) => {
+                    setMessageSentWithError(true);
+                  }
+                );
+            }}
           >
             Send Message
           </Button>
@@ -53,7 +97,7 @@ export default function () {
   );
 }
 
-const InputForm = () => {
+const InputForm = ({ reference }) => {
   const classes = useStyles();
   const [age, setAge] = React.useState(null);
 
@@ -63,7 +107,16 @@ const InputForm = () => {
 
   return (
     <Grid container item xs={12} md={6}>
-      <form className={`${classes.form}`}>
+      <form
+        autoComplete={"false"}
+        className={`${classes.form}`}
+        id="contactForm"
+        ref={reference}
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("Nate");
+        }}
+      >
         <Grid container className={`${classes.inputContainer}`}>
           <FormControl className={`${classes.formControl} `}>
             <Select
@@ -72,16 +125,21 @@ const InputForm = () => {
               onChange={handleChange}
               placeholder="Type of Service*"
               fullWidth
+              name="service"
               defaultValue="Type of Service*"
               className={`${classes.input} ${classes.selectContainer}`}
               classes={{
                 icon: classes.icon,
               }}
             >
-              <MenuItem value={10}>Web Development</MenuItem>
-              <MenuItem value={20}>Code Tutoring and/or Teaching</MenuItem>
-              <MenuItem value={30}>Software Consultation</MenuItem>
-              <MenuItem value={30}>Debugging</MenuItem>
+              <MenuItem value={"Web Development"}>Web Development</MenuItem>
+              <MenuItem value={"Code Tutoring and/or Teaching"}>
+                Code Tutoring and/or Teaching
+              </MenuItem>
+              <MenuItem value={"Software Consultation"}>
+                Software Consultation
+              </MenuItem>
+              <MenuItem value={"Debugging"}>Debugging</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -95,6 +153,7 @@ const InputForm = () => {
                 type={input.type}
                 variant="filled"
                 color="secondary"
+                name={input.name}
                 InputProps={{
                   disableUnderline: true,
                   classes: {
@@ -145,7 +204,7 @@ const MyInfo = () => {
             variant="h4"
             align="left"
           >
-            Got a project? don’t hesitate to contact.
+            Got a project? Need some help? Don’t hesitate to contact.
           </Typography>
 
           <Typography
