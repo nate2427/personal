@@ -98,7 +98,7 @@ export default function () {
           <Button
             className={`${classes.button}`}
             variant="contained"
-            color="primary"
+            color="secondary"
             fullWidth
             onClick={() => {
               const service_id = "gmail";

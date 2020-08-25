@@ -37,7 +37,7 @@ export default function () {
       id="portfolio"
     >
       <SectionHeader title="Portfolio" description="Skilled & Experienced" />
-      <Grid container>
+      <Grid container item xs={12} lg={10} justify="center">
         {content.links.map(({ url }, key) => {
           return (
             <Grid
@@ -58,7 +58,7 @@ export default function () {
                 >
                   {/* eslint-disable-next-line*/}
                   <a
-                    href="https://natebaker.me/"
+                    href={url}
                     data-iframely-url="//cdn.iframe.ly/api/iframe?url=http%3A%2F%2Fnatebaker.me&amp;key=c16798116f1de5306d282ad5963b1e2f&amp;iframe=card"
                   ></a>
                 </div>

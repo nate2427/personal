@@ -9,8 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundColor:
       theme.palette.type === "dark"
-        ? theme.palette.primary.main
+        ? theme.palette.primary.light
         : theme.palette.secondary.main,
-    opacity: ".5",
+    opacity: theme.palette.type === "dark" ? "1" : ".5",
   },
 }));
