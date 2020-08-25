@@ -1,8 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import Nate from "../../../../assets/images/nate-professional.png";
 import NateDark from "../../../../assets/images/nate-professional-dark.png";
-import NateMobile from "../../../../assets/images/nate-professional-mobile.png";
-import NateMobileDark from "../../../../assets/images/nate-professional-dark-mobile.png";
+// import NateMobile from "../../../../assets/images/nate-professional-mobile.png";
+// import NateMobileDark from "../../../../assets/images/nate-professional-dark-mobile.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
