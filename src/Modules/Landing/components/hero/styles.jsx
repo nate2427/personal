@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import Nate from "../../../../assets/images/nate-professional.png";
+import NateDark from "../../../../assets/images/nate-professional-dark.png";
 import NateMobile from "../../../../assets/images/nate-professional-mobile.png";
+import NateMobileDark from "../../../../assets/images/nate-professional-dark-mobile.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -23,19 +25,15 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   heroImage: {
-    background: `linear-gradient(rgba(18,18,18,${
-      theme.palette.type === "dark" ? "0.2" : "0"
-    }), rgba(18,18,18,${
-      theme.palette.type === "dark" ? "0.2" : "0"
-    })), url(${Nate})`,
+    background: `linear-gradient(rgba(18,18,18,0), rgba(18,18,18,0)), url(${
+      theme.palette.type === "dark" ? NateDark : Nate
+    })`,
 
     [theme.breakpoints.down("sm")]: {
       minHeight: "50vh",
-      background: `linear-gradient(rgba(18,18,18,${
-        theme.palette.type === "dark" ? "0.2" : "0"
-      }), rgba(18,18,18,${
-        theme.palette.type === "dark" ? "0.2" : "0"
-      })), url(${NateMobile})`,
+      background: `linear-gradient(rgba(18,18,18,0), rgba(18,18,18,0)), url(${
+        theme.palette.type === "dark" ? NateMobileDark : NateMobile
+      })`,
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
