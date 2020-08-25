@@ -91,4 +91,10 @@ export const useStyles = makeStyles((theme) => ({
   loaderContainer: {
     paddingBottom: "2rem",
   },
+  formContainer: {
+    paddingRight: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingRight: 0,
+    },
+  },
 }));

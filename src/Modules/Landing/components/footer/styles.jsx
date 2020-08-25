@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === "dark" ? "#f5f5f5" : "#000",
     paddingBottom: "7rem",
     padding: "0 2rem",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("md")]: {
       paddingBottom: "15rem",
     },
   },

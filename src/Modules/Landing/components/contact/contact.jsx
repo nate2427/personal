@@ -35,7 +35,7 @@ export default function () {
       id="contact"
     >
       <SectionHeader title="Contact" description="Available for freelance" />
-      <Grid container>
+      <Grid container item xs={12} md={10} justify="center">
         <InputForm reference={ref} />
         <MyInfo />
       </Grid>
@@ -158,7 +158,7 @@ const InputForm = ({ reference }) => {
   };
 
   return (
-    <Grid container item xs={12} md={6}>
+    <Grid container item xs={12} md={6} className={classes.formContainer}>
       <form
         autoComplete="off"
         className={`${classes.form}`}
