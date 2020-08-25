@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import {
   Grid,
   TextField,
@@ -13,6 +13,7 @@ import SectionHeader from "../section-header/section-header";
 
 import { useStyles } from "./styles";
 import { contactContent as content } from "./content";
+import { ThemeContext } from "../../../../App";
 
 export default function () {
   const classes = useStyles();
@@ -100,6 +101,17 @@ export default function () {
 const InputForm = ({ reference }) => {
   const classes = useStyles();
   const [age, setAge] = React.useState(null);
+  const [showSelectType, setShowSelectType] = useState(true);
+  const { darkModeOn } = useContext(ThemeContext); // dark mode
+
+  const inputStyle = {
+    WebkitBoxShadow: `0 0 0px 1000px ${"#5e666e"} inset`,
+    borderRadius: "unset",
+    caretColor: darkModeOn ? "#121212" : "#f5f5f5",
+    "input:-internal-autofill-selected": {
+      color: "#121212 !important",
+    },
+  };
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -108,7 +120,7 @@ const InputForm = ({ reference }) => {
   return (
     <Grid container item xs={12} md={6}>
       <form
-        autoComplete={"false"}
+        autoComplete="off"
         className={`${classes.form}`}
         id="contactForm"
         ref={reference}
@@ -118,28 +130,62 @@ const InputForm = ({ reference }) => {
         }}
       >
         <Grid container className={`${classes.inputContainer}`}>
-          <FormControl className={`${classes.formControl} `}>
+          <FormControl
+            className={`${classes.formControl} `}
+            color={darkModeOn ? "primary" : "secondary"}
+          >
             <Select
-              labelId="demo-simple-select-helper-label"
-              value={age ? age : "Type of Service*"}
+              value={age ? age : "Type of Service"}
               onChange={handleChange}
+              onClick={() => (showSelectType ? setShowSelectType(false) : null)}
               placeholder="Type of Service*"
               fullWidth
+              disableUnderline
               name="service"
               defaultValue="Type of Service*"
               className={`${classes.input} ${classes.selectContainer}`}
               classes={{
                 icon: classes.icon,
               }}
+              inputProps={{
+                placeholder: "Type of Service*",
+              }}
+              MenuProps={{
+                classes: {
+                  paper: classes.overrideMenuPaper,
+                },
+              }}
             >
-              <MenuItem value={"Web Development"}>Web Development</MenuItem>
-              <MenuItem value={"Code Tutoring and Teaching"}>
+              {showSelectType ? (
+                <MenuItem
+                  className={classes.menuItem}
+                  value={"Type of Service"}
+                >
+                  Type of Service*
+                </MenuItem>
+              ) : null}
+
+              <MenuItem className={classes.menuItem} value={"None"}>
+                None
+              </MenuItem>
+              <MenuItem className={classes.menuItem} value={"Web Development"}>
+                Web Development
+              </MenuItem>
+              <MenuItem
+                className={classes.menuItem}
+                value={"Code Tutoring and Teaching"}
+              >
                 Code Tutoring and/or Teaching
               </MenuItem>
-              <MenuItem value={"Software Consultation"}>
+              <MenuItem
+                className={classes.menuItem}
+                value={"Software Consultation"}
+              >
                 Software Consultation
               </MenuItem>
-              <MenuItem value={"Debugging"}>Debugging</MenuItem>
+              <MenuItem className={classes.menuItem} value={"Debugging"}>
+                Debugging
+              </MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -154,20 +200,24 @@ const InputForm = ({ reference }) => {
                 variant="filled"
                 color="secondary"
                 name={input.name}
+                autoComplete="off"
                 InputProps={{
                   disableUnderline: true,
                   classes: {
                     root: `${classes.overrideInput}`,
+                    inputMultiline: classes.overrideTextarea,
                   },
                 }}
                 InputLabelProps={{
-                  color: "secondary",
+                  color: darkModeOn ? "primary" : "secondary",
                   classes: {
                     root: `${classes.overrideLabel} `,
                   },
                 }}
+                inputProps={{ style: inputStyle }}
                 multiline={input.multi && input.multi}
                 rows={input.rowsMin && input.rowsMin}
+                classes={{}}
               />
             </Grid>
           );

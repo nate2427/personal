@@ -7,4 +7,17 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === "dark" ? "#f5f5f5" : "#000",
     padding: "0 2rem",
   },
+  aTag: {
+    width: "100%",
+  },
+  aTagContainer: {
+    paddingTop: "2rem",
+    paddingBottom: "10rem",
+  },
+  iframelyEmbed: {
+    width: "100%",
+    padding: "1rem",
+    height: "auto",
+    position: "relative",
+  },
 }));

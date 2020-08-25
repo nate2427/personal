@@ -17,7 +17,7 @@ export const contactContent = {
     },
     {
       placeholder: "Message*",
-      rowsMin: 5,
+      rowsMin: 7,
       multi: true,
       type: "text",
       name: "message_html",

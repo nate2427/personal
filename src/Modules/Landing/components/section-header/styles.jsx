@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   container: {
     minHeight: "16vh",
-    paddingTop: "3rem",
+    paddingTop: "1rem",
     paddingBottom: "3rem",
   },
   title: {

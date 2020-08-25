@@ -99,4 +99,9 @@ export const useStyles = makeStyles((theme) => ({
         ? theme.palette.secondary.dark
         : theme.palette.secondary.light,
   },
+  mainContainer: {
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "4rem",
+    },
+  },
 }));

@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: "1rem 0",
   },
   input: {
-    backgroundColor: theme.palette.type === "dark" ? "#d6d9dc" : "#5e666e",
+    backgroundColor: "#5e666e",
     color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
     fontSize: "2rem",
   },
@@ -54,8 +54,9 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
   },
   overrideInput: {
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     color: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
+    padding: ".5rem",
   },
   formControl: {
     width: "100%",
@@ -70,5 +71,18 @@ export const useStyles = makeStyles((theme) => ({
   },
   sentMessgae: {
     paddingBottom: "2rem",
+  },
+  overrideTextarea: {
+    padding: "27px 12px 10px",
+  },
+  overrideMenuPaper: {
+    backgroundColor:
+      theme.palette.type === "dark"
+        ? theme.palette.primary.main
+        : theme.palette.secondary.main,
+  },
+  menuItem: {
+    fontWeight: "700",
+    fontSize: "1.2rem",
   },
 }));

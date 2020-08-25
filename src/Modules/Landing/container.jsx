@@ -28,6 +28,7 @@ import Portfolio from "./components/portfolio/portfolio";
 import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
 import Hobbies from "./components/hobbies/hobbies";
+import SectionSeparator from "./components/section-separator/section-separator";
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -118,6 +119,7 @@ export default function PersistentDrawerLeft() {
               button
               key={index}
               onClick={() => {
+                setOpen(false);
                 scroller.scrollTo(navItem.id, {
                   containerId: "scrollcntr",
                   smooth: true,
@@ -169,24 +171,31 @@ export default function PersistentDrawerLeft() {
         <div name="container" id="mainContainer">
           <Grid
             container
-            className={classes.componentContainer}
+            className={`${classes.componentContainer} `}
             id="scrollcntr"
           >
             <Hero />
             <About />
             <Element name="about"></Element>
+            <SectionSeparator />
             <Resume />
             <Element name="resume"></Element>
+            <SectionSeparator />
             <Services />
             <Element name="services"></Element>
+            <SectionSeparator />
             <Portfolio />
             <Element name="portfolio"></Element>
+            <SectionSeparator />
             <Testimonials />
             <Element name="testimonials"></Element>
+            <SectionSeparator />
             <Hobbies />
             <Element name="hobbies"></Element>
+            <SectionSeparator />
             <Contact />
             <Element name="contact"></Element>
+            <SectionSeparator />
           </Grid>
         </div>
       </main>
