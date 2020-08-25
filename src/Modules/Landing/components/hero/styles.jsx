@@ -31,12 +31,12 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       minHeight: "50vh",
-      background: `linear-gradient(rgba(18,18,18,0), rgba(18,18,18,0)), url(${
-        theme.palette.type === "dark" ? NateMobileDark : NateMobile
-      })`,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
+      // background: `linear-gradient(rgba(18,18,18,0), rgba(18,18,18,0)), url(${
+      //   theme.palette.type === "dark" ? NateMobileDark : NateMobile
+      // })`,
+      // backgroundPosition: "center",
+      // backgroundRepeat: "no-repeat",
+      // backgroundSize: "cover",
     },
     [theme.breakpoints.down("md")]: {
       minHeight: "79vh",

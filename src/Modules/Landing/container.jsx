@@ -29,6 +29,7 @@ import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
 import Hobbies from "./components/hobbies/hobbies";
 import SectionSeparator from "./components/section-separator/section-separator";
+import Footer from "./components/footer/footer";
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -209,6 +210,7 @@ export default function PersistentDrawerLeft() {
             <Contact />
             <Element name="contact"></Element>
             <SectionSeparator />
+            <Footer />
           </Grid>
         </div>
       </main>
