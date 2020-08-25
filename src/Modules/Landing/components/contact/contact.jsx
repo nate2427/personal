@@ -7,6 +7,7 @@ import {
   Select,
   MenuItem,
   FormControl,
+  CircularProgress,
 } from "@material-ui/core";
 import emailjs from "emailjs-com";
 import SectionHeader from "../section-header/section-header";
@@ -20,6 +21,7 @@ export default function () {
   const ref = useRef();
   const [messageSent, setMessageSent] = useState(false);
   const [messageSentWithError, setMessageSentWithError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <Grid
@@ -29,6 +31,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
       id="contact"
     >
       <SectionHeader title="Contact" description="Available for freelance" />
@@ -43,11 +46,29 @@ export default function () {
         justify="flex-start"
         className={`${classes.buttonContainer}`}
       >
+        {loading ? (
+          <Grid
+            item
+            container
+            justify="center"
+            className={classes.loaderContainer}
+            xs={12}
+          >
+            <CircularProgress color="secondary" />
+          </Grid>
+        ) : null}
+
         {messageSent ? (
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            container
+            justify="center"
+            className={classes.loaderContainer}
+          >
             <Typography
               variant="h4"
-              color="primary"
+              color="secondary"
               className={`${classes.sentMessgae}`}
             >
               Sent!
@@ -56,7 +77,13 @@ export default function () {
         ) : null}
 
         {messageSentWithError ? (
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            container
+            justify="center"
+            className={classes.loaderContainer}
+          >
             <Typography
               variant="h4"
               color="error"
@@ -73,19 +100,22 @@ export default function () {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={(e) => {
+            onClick={() => {
               const service_id = "gmail";
               const template_id = "template_vwi236bZ";
               const user_id = "user_4Sd3PL1XIEE0y4imZuIR3";
+              setLoading(true);
 
               emailjs
                 .sendForm(service_id, template_id, ref.current, user_id)
                 .then(
                   () => {
                     setMessageSent(true);
+                    setLoading(false);
                   },
-                  (error) => {
+                  () => {
                     setMessageSentWithError(true);
+                    setLoading(false);
                   }
                 );
             }}
@@ -100,21 +130,31 @@ export default function () {
 
 const InputForm = ({ reference }) => {
   const classes = useStyles();
-  const [age, setAge] = React.useState(null);
+
   const [showSelectType, setShowSelectType] = useState(true);
-  const { darkModeOn } = useContext(ThemeContext); // dark mode
+  const {
+    darkModeOn,
+    setSelectValue,
+    selectValue,
+    setMessageValue,
+    messageValue,
+  } = useContext(ThemeContext);
+  const [inputVals, setInputVals] = React.useState(["", "", ""]);
+
+  console.log(messageValue ? messageValue : "not yet");
 
   const inputStyle = {
     WebkitBoxShadow: `0 0 0px 1000px ${"#5e666e"} inset`,
     borderRadius: "unset",
     caretColor: darkModeOn ? "#121212" : "#f5f5f5",
-    "input:-internal-autofill-selected": {
-      color: "#121212 !important",
+    "input:InternalAutofillSelected": {
+      color: "yellow !important",
+      backgroundColor: "red",
     },
   };
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setSelectValue(event.target.value);
   };
 
   return (
@@ -135,7 +175,7 @@ const InputForm = ({ reference }) => {
             color={darkModeOn ? "primary" : "secondary"}
           >
             <Select
-              value={age ? age : "Type of Service"}
+              value={selectValue ? selectValue : "Type of Service"}
               onChange={handleChange}
               onClick={() => (showSelectType ? setShowSelectType(false) : null)}
               placeholder="Type of Service*"
@@ -201,6 +241,14 @@ const InputForm = ({ reference }) => {
                 color="secondary"
                 name={input.name}
                 autoComplete="off"
+                onChange={
+                  key === 3
+                    ? (e) => setMessageValue(e.target.value)
+                    : (e) => {
+                        inputVals[key] = e.target.value;
+                        setInputVals([...inputVals]);
+                      }
+                }
                 InputProps={{
                   disableUnderline: true,
                   classes: {
@@ -214,10 +262,11 @@ const InputForm = ({ reference }) => {
                     root: `${classes.overrideLabel} `,
                   },
                 }}
+                // eslint-disable-next-line
                 inputProps={{ style: inputStyle }}
                 multiline={input.multi && input.multi}
                 rows={input.rowsMin && input.rowsMin}
-                classes={{}}
+                value={key === 3 ? messageValue : inputVals[key]}
               />
             </Grid>
           );

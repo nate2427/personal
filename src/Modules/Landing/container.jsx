@@ -76,7 +76,16 @@ export default function PersistentDrawerLeft() {
                 >
                   <MenuIcon fontSize="large" className={`${classes.icon}`} />
                 </IconButton>
-                <Typography variant="h3">
+                <Typography
+                  variant="h3"
+                  onClick={() => {
+                    scroller.scrollTo("home", {
+                      containerId: "scrollcntr",
+                      smooth: true,
+                      duration: 900,
+                    });
+                  }}
+                >
                   Baker <span className={`${classes.period}`}>.</span>
                 </Typography>
                 <IconButton
@@ -173,6 +182,7 @@ export default function PersistentDrawerLeft() {
             container
             className={`${classes.componentContainer} `}
             id="scrollcntr"
+            justify="center"
           >
             <Hero />
             <About />

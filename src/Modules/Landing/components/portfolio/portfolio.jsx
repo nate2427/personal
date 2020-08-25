@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid } from "@material-ui/core";
-import Microlink from "@microlink/react";
+import { Grid, Paper } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";
@@ -24,6 +23,7 @@ export default function () {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, []);
   return (
     <Grid
@@ -33,6 +33,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
       id="portfolio"
     >
       <SectionHeader title="Portfolio" description="Skilled & Experienced" />
@@ -55,6 +56,7 @@ export default function () {
                     padddingTop: "120px",
                   }}
                 >
+                  {/* eslint-disable-next-line*/}
                   <a
                     href="https://natebaker.me/"
                     data-iframely-url="//cdn.iframe.ly/api/iframe?url=http%3A%2F%2Fnatebaker.me&amp;key=c16798116f1de5306d282ad5963b1e2f&amp;iframe=card"

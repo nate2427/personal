@@ -16,6 +16,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
       id="resume"
     >
       <SectionHeader title="Resume" description="Experiences & Education" />

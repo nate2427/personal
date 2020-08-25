@@ -15,6 +15,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
       id="testimonials"
     >
       <SectionHeader title="Testimonials" description="Tried & True" />

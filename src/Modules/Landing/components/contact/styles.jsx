@@ -74,6 +74,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   overrideTextarea: {
     padding: "27px 12px 10px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "5rem 3rem",
+    },
   },
   overrideMenuPaper: {
     backgroundColor:
@@ -84,5 +87,8 @@ export const useStyles = makeStyles((theme) => ({
   menuItem: {
     fontWeight: "700",
     fontSize: "1.2rem",
+  },
+  loaderContainer: {
+    paddingBottom: "2rem",
   },
 }));

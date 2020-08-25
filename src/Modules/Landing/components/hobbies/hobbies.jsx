@@ -15,11 +15,11 @@ export default function () {
   const hobbies = [
     {
       icon: <ImportContactsIcon className={`${classes.icon}`} />,
-      title: "Reading",
+      title: "Learning",
     },
     {
       icon: <ExtensionIcon className={`${classes.icon}`} />,
-      title: "Puzzles",
+      title: "Critically Thinking",
     },
     {
       icon: <RecordVoiceOverIcon className={`${classes.icon}`} />,
@@ -27,11 +27,11 @@ export default function () {
     },
     {
       icon: <FastfoodIcon className={`${classes.icon}`} />,
-      title: "Devouring",
+      title: "Smashing",
     },
     {
       icon: <SportsBasketballIcon className={`${classes.icon}`} />,
-      title: "Basketball",
+      title: "Hooping",
     },
   ];
   return (
@@ -42,6 +42,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
       id="hobbies"
     >
       <SectionHeader title="Hobbies" description="Cheerful & Enthusiastic" />

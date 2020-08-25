@@ -15,6 +15,7 @@ export default function () {
       className={`${classes.container}`}
       item
       xs={12}
+      lg={11}
     >
       <SectionHeader title="About" description="Creative & Passionate" />
       <Grid item xs={12}>

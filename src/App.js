@@ -8,6 +8,8 @@ export const ThemeContext = React.createContext();
 
 export default function App() {
   const [darkModeOn, setDarkModeOn] = React.useState(true);
+  const [selectValue, setSelectValue] = React.useState(null);
+  const [messageValue, setMessageValue] = React.useState("");
   const theme = getTheme({});
   function getTheme(theme) {
     return createMuiTheme({
@@ -37,7 +39,14 @@ export default function App() {
   }
   return (
     <ThemeContext.Provider
-      value={{ darkModeOn: darkModeOn, setDarkModeOn: setDarkModeOn }}
+      value={{
+        darkModeOn: darkModeOn,
+        setDarkModeOn: setDarkModeOn,
+        selectValue: selectValue,
+        setSelectValue: setSelectValue,
+        messageValue,
+        setMessageValue,
+      }}
     >
       <ThemeProvider theme={theme}>
         <Paper square style={{ height: "100vh" }}>

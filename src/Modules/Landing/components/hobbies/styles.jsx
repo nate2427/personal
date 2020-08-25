@@ -21,6 +21,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   hobbyContainer: {
     backgroundColor: theme.palette.secondary.main,
+    [theme.breakpoints.down("xs")]: {
+      padding: "3rem 0",
+    },
   },
   hobbyContainer2: {
     borderRight: `${

@@ -37,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: "1.6rem",
       lineHeight: "2.5rem",
     },
-    color: "#707070",
+    color: theme.palette.type === "dark" ? "#f0f0f0" : "#707070",
     fontStyle: "italic",
     lineHeight: "3.2rem",
   },
