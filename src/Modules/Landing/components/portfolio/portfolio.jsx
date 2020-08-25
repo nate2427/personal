@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";

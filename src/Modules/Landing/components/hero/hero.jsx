@@ -22,7 +22,8 @@ export default function () {
         <Grid
           item
           container
-          sm={5}
+          md={5}
+          sm={4}
           xs={12}
           className={`${classes.heroLeftContainer}`}
         >
@@ -45,7 +46,7 @@ export default function () {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item sm={7} xs={12}>
+        <Grid item md={7} xs={12} sm={8}>
           <div className={classes.heroImage}></div>
         </Grid>
       </Grid>

@@ -63,19 +63,22 @@ export default function PersistentDrawerLeft() {
           <Toolbar variant="dense">
             <Grid container justify="center">
               <Grid container item justify="space-between">
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  edge="start"
-                  className={clsx(
-                    classes.menuButton,
-                    open && classes.hide,
-                    classes.icon
-                  )}
-                >
-                  <MenuIcon fontSize="large" className={`${classes.icon}`} />
-                </IconButton>
+                {!open ? (
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleDrawerOpen}
+                    edge="start"
+                    className={clsx(
+                      classes.menuButton,
+                      open && classes.hide,
+                      classes.icon
+                    )}
+                  >
+                    <MenuIcon fontSize="large" className={`${classes.icon}`} />
+                  </IconButton>
+                ) : null}
+
                 <Typography
                   variant="h3"
                   onClick={() => {

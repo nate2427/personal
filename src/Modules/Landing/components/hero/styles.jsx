@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core";
-import Nate from "../../../../assets/images/nate-professional-removebg-preview.png";
+import Nate from "../../../../assets/images/nate-professional.png";
+import NateMobile from "../../../../assets/images/nate-professional-mobile.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,16 +23,27 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   heroImage: {
-    backgroundImage: `url(${Nate})`,
+    background: `linear-gradient(rgba(18,18,18,${
+      theme.palette.type === "dark" ? "0.2" : "0"
+    }), rgba(18,18,18,${
+      theme.palette.type === "dark" ? "0.2" : "0"
+    })), url(${Nate})`,
+
     [theme.breakpoints.down("sm")]: {
       minHeight: "50vh",
+      background: `linear-gradient(rgba(18,18,18,${
+        theme.palette.type === "dark" ? "0.2" : "0"
+      }), rgba(18,18,18,${
+        theme.palette.type === "dark" ? "0.2" : "0"
+      })), url(${NateMobile})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
     },
     [theme.breakpoints.down("md")]: {
       minHeight: "79vh",
     },
-    // [theme.breakpoints.down("lg")]: {
-    //   minHeight: "86.2vh",
-    // },
+    // opacity: theme.palette.type === "dark" ? ".7" : "1",
     minHeight: "88vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
