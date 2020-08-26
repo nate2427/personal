@@ -141,8 +141,6 @@ const InputForm = ({ reference }) => {
   } = useContext(ThemeContext);
   const [inputVals, setInputVals] = React.useState(["", "", ""]);
 
-  console.log(messageValue ? messageValue : "not yet");
-
   const inputStyle = {
     WebkitBoxShadow: `0 0 0px 1000px ${"#5e666e"} inset`,
     borderRadius: "unset",

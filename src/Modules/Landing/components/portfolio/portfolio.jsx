@@ -13,16 +13,13 @@ export default function () {
   useEffect(() => {
     window.iframely && window.iframely.load();
     Axios.get(
-      "https://iframe.ly/api/oembed?url=natebaker.me&api_key=24f3c852a5f6bdcefc17d1&iframe=card"
+      "https://iframe.ly/api/oembed?url=http://www.natebaker.me&api_key=24f3c852a5f6bdcefc17d1&iframe=card"
     )
       .then((data) => {
         links.push(data);
         setLinks([...links]);
-        console.log(data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
     // eslint-disable-next-line
   }, []);
   return (
@@ -37,7 +34,7 @@ export default function () {
       id="portfolio"
     >
       <SectionHeader title="Portfolio" description="Skilled & Experienced" />
-      <Grid container item xs={12} lg={10} justify="center">
+      <Grid container item xs={12} lg={10} justify="flex-start">
         {content.links.map(({ url }, key) => {
           return (
             <Grid
@@ -52,15 +49,21 @@ export default function () {
                 <div
                   className="iframely-responsive"
                   style={{
-                    paddingBottom: "56.2963%",
-                    padddingTop: "120px",
+                    paddingTop: "120px",
+                    padddingBottom: "70.9937%",
                   }}
                 >
                   {/* eslint-disable-next-line*/}
                   <a
                     href={url}
-                    data-iframely-url="//cdn.iframe.ly/api/iframe?url=http%3A%2F%2Fnatebaker.me&amp;key=c16798116f1de5306d282ad5963b1e2f&amp;iframe=card"
+                    data-iframely-url="//cdn.iframe.ly/api/iframe?url=http%3A%2F%2Fwww.natebaker.me&amp;key=c16798116f1de5306d282ad5963b1e2f&amp;iframe=card"
                   ></a>
+
+                  <script
+                    async
+                    src="//cdn.iframe.ly/embed.js"
+                    charSet="utf-8"
+                  ></script>
                 </div>
               </div>
             </Grid>
