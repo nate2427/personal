@@ -7,6 +7,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Olivia from "../../../../assets/images/olivia-starnes.jpeg";
 import Alexus from "../../../../assets/images/alexus-mcgriff.PNG";
+import Thomas from "../../../../assets/images/thomas-hoang.jpeg";
 
 import { useStyles } from "./styles";
 import { Grid, Avatar } from "@material-ui/core";
@@ -20,6 +21,13 @@ const tutorialSteps = [
     body:
       "Nate teaches in a way that the student can understand. He made Web Development clearer to me in a few weeks than university did in an entire semester. Not only does Nate guide and teach his students, he learns new things with them if he doesn’t know. Would definitely recommend partnering with him on web projects.",
     avi: Alexus,
+  },
+  {
+    name: "Thomas Hoang",
+    occupationTitle: "Software Engineer - JPMorgan Chase & Co.",
+    body:
+      "I've had the honor of working with Nate to complete social media applications, search engines, and an virtual education platform. He shows tremendous ability being a leader during architecture designs of applications and shows proficient ability with full stack development on all of his products",
+    avi: Thomas,
   },
   {
     name: "Olivia Starnes",

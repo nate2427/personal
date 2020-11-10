@@ -57,6 +57,15 @@ export default function () {
             fullWidth
             variant="contained"
             color="secondary"
+            onClick={() => {
+              const url =
+                "https://natebaker.me/assets/Nate_Baker_Resume_2020.pdf";
+              const link = document.createElement("a");
+              link.href = url;
+              link.setAttribute("download", "Nate_Baker_resume_2020.pdf");
+              link.target = "_blank";
+              link.click();
+            }}
           >
             Download Resume
           </Button>

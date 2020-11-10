@@ -22,6 +22,8 @@ export default function () {
   const [messageSent, setMessageSent] = useState(false);
   const [messageSentWithError, setMessageSentWithError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [inputVals, setInputVals] = React.useState(["", "", ""]);
+  const { selectValue, messageValue } = useContext(ThemeContext);
 
   return (
     <Grid
@@ -36,7 +38,11 @@ export default function () {
     >
       <SectionHeader title="Contact" description="Available for freelance" />
       <Grid container item xs={12} md={10} justify="center">
-        <InputForm reference={ref} />
+        <InputForm
+          reference={ref}
+          inputVals={inputVals}
+          setInputVals={setInputVals}
+        />
         <MyInfo />
       </Grid>
       <Grid
@@ -101,23 +107,31 @@ export default function () {
             color="secondary"
             fullWidth
             onClick={() => {
+              const template_params = {
+                domain_name_email: "nate.baker@mibase.net",
+                client_name: inputVals[0],
+                client_email: inputVals[1],
+                service: selectValue,
+                message_html: messageValue,
+                phone: inputVals[2],
+              };
+
+              console.log(template_params);
+
               const service_id = "gmail";
-              const template_id = "template_vwi236bZ";
+              const template_id = "contact_form";
               const user_id = "user_4Sd3PL1XIEE0y4imZuIR3";
               setLoading(true);
-
               emailjs
-                .sendForm(service_id, template_id, ref.current, user_id)
-                .then(
-                  () => {
-                    setMessageSent(true);
-                    setLoading(false);
-                  },
-                  () => {
-                    setMessageSentWithError(true);
-                    setLoading(false);
-                  }
-                );
+                .send(service_id, template_id, template_params, user_id)
+                .then(() => {
+                  setMessageSent(true);
+                  setLoading(false);
+                })
+                .catch(() => {
+                  setMessageSentWithError(true);
+                  setLoading(false);
+                });
             }}
           >
             Send Message
@@ -128,7 +142,7 @@ export default function () {
   );
 }
 
-const InputForm = ({ reference }) => {
+const InputForm = ({ reference, inputVals, setInputVals }) => {
   const classes = useStyles();
 
   const [showSelectType, setShowSelectType] = useState(true);
@@ -139,7 +153,6 @@ const InputForm = ({ reference }) => {
     setMessageValue,
     messageValue,
   } = useContext(ThemeContext);
-  const [inputVals, setInputVals] = React.useState(["", "", ""]);
 
   const inputStyle = {
     WebkitBoxShadow: `0 0 0px 1000px ${"#5e666e"} inset`,
