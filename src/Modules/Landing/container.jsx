@@ -27,7 +27,7 @@ import Services from "./components/services/services";
 import Portfolio from "./components/portfolio/portfolio";
 import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
-import Hobbies from "./components/hobbies/hobbies";
+// import Hobbies from "./components/hobbies/hobbies";
 import SectionSeparator from "./components/section-separator/section-separator";
 import Footer from "./components/footer/footer";
 
@@ -86,7 +86,7 @@ export default function PersistentDrawerLeft() {
                     scroller.scrollTo("home", {
                       containerId: "scrollcntr",
                       smooth: true,
-                      duration: 900,
+                      duration: 700,
                     });
                   }}
                 >
@@ -136,7 +136,7 @@ export default function PersistentDrawerLeft() {
                 scroller.scrollTo(navItem.id, {
                   containerId: "scrollcntr",
                   smooth: true,
-                  duration: 900,
+                  duration: 600,
                 });
               }}
             >
@@ -204,9 +204,9 @@ export default function PersistentDrawerLeft() {
             <Testimonials />
             <Element name="testimonials"></Element>
             <SectionSeparator />
-            <Hobbies />
+            {/* <Hobbies />
             <Element name="hobbies"></Element>
-            <SectionSeparator />
+            <SectionSeparator /> */}
             <Contact />
             <Element name="contact"></Element>
             <SectionSeparator />

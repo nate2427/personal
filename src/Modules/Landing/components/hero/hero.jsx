@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Button, Typography, Divider } from "@material-ui/core";
+import TextLoop from "react-text-loop";
 import { scroller } from "react-scroll";
 
 import { useStyles } from "./styles";
@@ -41,9 +42,12 @@ export default function () {
             <Divider className={`${classes.heroDivider}`} />
           </Grid>
           <Grid className={`${classes.heroSpacing}`} item xs={12}>
-            <Typography className={`${classes.occupation}`} variant="h4">
-              Freelance Web Developer and Coding Instructor
-            </Typography>
+            <TextLoop>
+              <h4 className={`${classes.occupation}`}>Coding Tutor</h4>
+              <h4 className={`${classes.occupation}`}>Software Engineer</h4>
+              <h4 className={`${classes.occupation}`}>Automation Creator</h4>
+              <h4 className={`${classes.occupation}`}>Motivational Speaker</h4>
+            </TextLoop>
           </Grid>
         </Grid>
         <Grid item md={7} xs={12} sm={8}>

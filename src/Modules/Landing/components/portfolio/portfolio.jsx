@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";
@@ -34,42 +34,44 @@ export default function () {
       id="portfolio"
     >
       <SectionHeader title="Portfolio" description="Skilled & Experienced" />
-      <Grid container item xs={12} lg={10} justify="flex-start">
-        {content.links.map(({ url }, key) => {
+      <Grid container item xs={12} lg={10} justify="center">
+        {content.links.map(({ url, imgLink, alt, showURL }, key) => {
           return (
-            <Grid
-              item
-              container
-              xs={12}
-              sm={6}
+            <PortfolioCard
+              url={url}
               key={key}
-              className={`${classes.aTagContainer}`}
-            >
-              <div className={`${classes.iframelyEmbed}`}>
-                <div
-                  className="iframely-responsive"
-                  style={{
-                    paddingTop: "120px",
-                    padddingBottom: "70.9937%",
-                  }}
-                >
-                  {/* eslint-disable-next-line*/}
-                  <a
-                    href={url}
-                    data-iframely-url="//cdn.iframe.ly/api/iframe?url=http%3A%2F%2Fwww.natebaker.me&amp;key=c16798116f1de5306d282ad5963b1e2f&amp;iframe=card"
-                  ></a>
-
-                  <script
-                    async
-                    src="//cdn.iframe.ly/embed.js"
-                    charSet="utf-8"
-                  ></script>
-                </div>
-              </div>
-            </Grid>
+              imgLink={imgLink}
+              alt={alt}
+              showURL={showURL}
+            />
           );
         })}
       </Grid>
     </Grid>
   );
 }
+
+const PortfolioCard = ({ url, imgLink, alt, showURL }) => {
+  const classes = useStyles();
+  return (
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      className={classes.portCardContainer}
+      onClick={() => {
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.click();
+      }}
+    >
+      <div className={classes.portImgCardContainer}>
+        <img className={classes.img} src={imgLink} alt={alt} />
+      </div>
+      <Typography align="center" className={classes.cardName} variant="h4">
+        {showURL}
+      </Typography>
+    </Grid>
+  );
+};

@@ -20,4 +20,36 @@ export const useStyles = makeStyles((theme) => ({
     height: "auto",
     position: "relative",
   },
+  portCardContainer: {
+    padding: "3rem",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  portImgCardContainer: {},
+  img: {
+    width: "100%",
+    height: "100%",
+    borderTopLeftRadius: "1rem",
+    borderTopRightRadius: "1rem",
+    boxShadow:
+      theme.palette.type === "dark"
+        ? "0 4px 8px 0 rgba(255,255,255,0.2)"
+        : "0 4px 8px 0 rgba(0,0,0,0.2)",
+  },
+  cardName: {
+    backgroundColor: "#fdfdfd",
+    width: "100%",
+    marginTop: "-.5rem",
+    padding: "2rem 0",
+    textTransform: "uppercase",
+    fontSize: "2rem",
+    fontFamily: "Merriweather",
+    fontWeight: "bold",
+    boxShadow:
+      theme.palette.type === "dark"
+        ? "0 4px 8px 0 rgba(255,255,255,0.4)"
+        : "0 4px 8px 0 rgba(0,0,0,0.2)",
+    color: "#242f46",
+  },
 }));

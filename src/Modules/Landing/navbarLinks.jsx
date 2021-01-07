@@ -6,7 +6,7 @@ import BuildIcon from "@material-ui/icons/Build";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import FeaturedPlayListIcon from "@material-ui/icons/FeaturedPlayList";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
-import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
+// import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
 
 export const links = [
   {
@@ -39,11 +39,11 @@ export const links = [
     id: "testimonials",
     icon: <FeaturedPlayListIcon fontSize="large" />,
   },
-  {
-    name: "Hobbies",
-    id: "hobbies",
-    icon: <SportsBasketballIcon fontSize="large" />,
-  },
+  // {
+  //   name: "Hobbies",
+  //   id: "hobbies",
+  //   icon: <SportsBasketballIcon fontSize="large" />,
+  // },
   {
     name: "Contact",
     id: "contact",

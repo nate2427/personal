@@ -78,5 +78,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   occupation: {
     color: theme.palette.type === "dark" ? "#f0f0f0" : "#757575",
+    fontSize: "2.4285714285714284rem",
+    fontFamily: "oswald, sans-serif",
+    fontWeight: 500,
   },
 }));

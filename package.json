@@ -27,6 +27,7 @@
     "react-scroll-to": "^3.0.0-beta.6",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9",
+    "react-text-loop": "^2.3.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
