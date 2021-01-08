@@ -63,7 +63,7 @@ export default function () {
             color="secondary"
             onClick={() => {
               const url =
-                "https://natebaker.me/assets/Nate_Baker_Resume_2020.pdf";
+                "https://drive.google.com/file/d/1-cwgb81ZXV0Y3p7cbplAetPIWa28mORg/view?usp=sharing";
               const link = document.createElement("a");
               link.href = url;
               link.setAttribute("download", "Nate_Baker_resume_2020.pdf");
