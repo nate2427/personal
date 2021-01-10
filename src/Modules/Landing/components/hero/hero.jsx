@@ -62,6 +62,23 @@ export default function () {
             variant="contained"
             color="secondary"
             onClick={() => {
+              scroller.scrollTo("services", {
+                containerId: "scrollcntr",
+                smooth: true,
+                duration: 900,
+              });
+            }}
+          >
+            Schedule a session
+          </Button>
+        </Grid>
+        <Grid item xs={6}>
+          <Button
+            classes={{ root: classes.heroButtons }}
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={() => {
               const url =
                 "https://drive.google.com/file/d/1-cwgb81ZXV0Y3p7cbplAetPIWa28mORg/view?usp=sharing";
               const link = document.createElement("a");
@@ -72,23 +89,6 @@ export default function () {
             }}
           >
             Download Resume
-          </Button>
-        </Grid>
-        <Grid item xs={6}>
-          <Button
-            classes={{ root: classes.heroButtons }}
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              scroller.scrollTo("portfolio", {
-                containerId: "scrollcntr",
-                smooth: true,
-                duration: 900,
-              });
-            }}
-          >
-            View Portfolio
           </Button>
         </Grid>
       </Grid>
