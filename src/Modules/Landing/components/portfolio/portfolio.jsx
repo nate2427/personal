@@ -6,6 +6,8 @@ import SectionHeader from "../section-header/section-header";
 import { portfolioContent as content } from "./content";
 import Axios from "axios";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
 
 export default function () {
   const classes = useStyles();
@@ -43,6 +45,7 @@ export default function () {
               imgLink={imgLink}
               alt={alt}
               showURL={showURL}
+              delay={key}
             />
           );
         })}
@@ -51,7 +54,38 @@ export default function () {
   );
 }
 
-const PortfolioCard = ({ url, imgLink, alt, showURL }) => {
+const PortfolioCard = ({ url, imgLink, alt, showURL, delay }) => {
+  const [ref, inView] = useInView({ threshold: 0.3 });
+  let cardRef = React.useRef(null);
+  const [hasAnimated, setHasAnimated] = React.useState(false);
+
+  React.useEffect(() => {
+    gsap.to(cardRef.current, {
+      x: -300,
+      duration: 0,
+      opacity: 0,
+      ease: "expo.easeInOut",
+    });
+    // eslint-disable-next-line
+  }, []);
+
+  const slideIn = () => {
+    !hasAnimated &&
+      gsap
+        .to(cardRef.current, {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.5 * delay,
+          ease: "expo.easeInOut",
+        })
+        .then(setHasAnimated(true));
+  };
+
+  const slideOut = () => {};
+
+  inView ? slideIn() : slideOut();
+
   const classes = useStyles();
   return (
     <Grid
@@ -66,12 +100,16 @@ const PortfolioCard = ({ url, imgLink, alt, showURL }) => {
         link.click();
       }}
     >
-      <div className={classes.portImgCardContainer}>
-        <img className={classes.img} src={imgLink} alt={alt} />
+      <div ref={ref}>
+        <div ref={cardRef}>
+          <div className={classes.portImgCardContainer}>
+            <img className={classes.img} src={imgLink} alt={alt} />
+          </div>
+          <Typography align="center" className={classes.cardName} variant="h4">
+            {showURL}
+          </Typography>
+        </div>
       </div>
-      <Typography align="center" className={classes.cardName} variant="h4">
-        {showURL}
-      </Typography>
     </Grid>
   );
 };

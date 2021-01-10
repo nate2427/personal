@@ -32,9 +32,9 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   separator: {
-    minHeight: "40rem",
+    minHeight: "35rem",
     [theme.breakpoints.down("xs")]: {
-      minHeight: "60rem",
+      minHeight: "40rem",
     },
   },
   dateRange: {

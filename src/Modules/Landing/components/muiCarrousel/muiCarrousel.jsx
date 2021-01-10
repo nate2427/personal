@@ -17,7 +17,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     name: "Alexus McGriff",
-    occupationTitle: "Business Analysis - Citigroup",
+    occupationTitle: "Business Analyst - Citigroup",
     body:
       "Nate teaches in a way that the student can understand. He made Web Development clearer to me in a few weeks than university did in an entire semester. Not only does Nate guide and teach his students, he learns new things with them if he doesn’t know. Would definitely recommend partnering with him on web projects.",
     avi: Alexus,
