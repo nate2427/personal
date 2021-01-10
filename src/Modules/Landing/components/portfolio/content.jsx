@@ -1,7 +1,11 @@
-import UMSEP from "../../../../assets/images/portfolio/UMSEP-IMG.png";
-import KQHS from "../../../../assets/images/portfolio/KQHS-IMG.png";
-import NATEBAKER from "../../../../assets/images/portfolio/NATEBAKER-IMG.png";
-import NATEBAKER_PRACTICE from "../../../../assets/images/portfolio/PRACTICESITE-IMG.png";
+const UMSEP =
+  "https://res.cloudinary.com/mibase/image/upload/v1610290744/personal/natebaker.me/umsep_img_ijqmh4.jpg";
+const KQHS =
+  "https://res.cloudinary.com/mibase/image/upload/v1610290744/personal/natebaker.me/kqhs_img_lazdfk.jpg";
+const NATEBAKER =
+  "https://res.cloudinary.com/mibase/image/upload/v1610290744/personal/natebaker.me/natebaker_img_ltzn2d.jpg";
+const NATEBAKER_PRACTICE =
+  "https://res.cloudinary.com/mibase/image/upload/v1610290744/personal/natebaker.me/practicesite_img_f9vtte.jpg";
 
 export const portfolioContent = {
   links: [

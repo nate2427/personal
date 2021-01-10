@@ -138,11 +138,11 @@ function FormDialog({ isOpen, setOpen }) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">
-            Cancel
-          </Button>
           <Button onClick={sendAutomationRequest} color="secondary">
             Send
+          </Button>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Cancel
           </Button>
         </DialogActions>
       </Dialog>
