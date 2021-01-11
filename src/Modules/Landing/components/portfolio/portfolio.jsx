@@ -107,13 +107,15 @@ const PortfolioCard = ({ url, publicId, alt, showURL, delay }) => {
           <div className={classes.portImgCardContainer}>
             <Image
               className={`${classes.img} cld-responsive`}
-              // src={imgLink}
+              dpr="auto"
+              responsive
+              width="auto"
+              crop="scale"
+              responsiveUseBreakpoints="true"
               alt={alt}
               publicID={publicId}
               cloudName="mibase"
-            >
-              <Transformation width="auto" crop="scale" />
-            </Image>
+            ></Image>
           </div>
           <Typography align="center" className={classes.cardName} variant="h4">
             {showURL}
