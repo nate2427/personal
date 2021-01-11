@@ -98,6 +98,7 @@ const PortfolioCard = ({ url, publicId, alt, showURL, delay }) => {
               width="auto"
               crop="scale"
               loading="lazy"
+              quality="auto"
               responsiveUseBreakpoints="true"
               alt={alt}
               publicID={publicId}

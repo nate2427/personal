@@ -15,21 +15,26 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { useMediaQuery, Grid, Typography } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import { scroller, Element } from "react-scroll";
+import loadable from "@loadable/component";
 
 import { ThemeContext } from "../../App";
 import { links as navLinks } from "./navbarLinks";
 import { useStyles } from "./styles";
+
 // components of the landing page
-import About from "./components/about/about";
-import Hero from "./components/hero/hero";
-import Resume from "./components/resume/resume";
-import Services from "./components/services/services";
-import Portfolio from "./components/portfolio/portfolio";
-import Testimonials from "./components/testimonials/testimonials";
-import Contact from "./components/contact/contact";
-// import Hobbies from "./components/hobbies/hobbies";
-import SectionSeparator from "./components/section-separator/section-separator";
-import Footer from "./components/footer/footer";
+const About = loadable(() => import("./components/about/about"));
+const Hero = loadable(() => import("./components/hero/hero"));
+const Resume = loadable(() => import("./components/resume/resume"));
+const Portfolio = loadable(() => import("./components/portfolio/portfolio"));
+const Testimonials = loadable(() =>
+  import("./components/testimonials/testimonials")
+);
+const Contact = loadable(() => import("./components/contact/contact"));
+const Footer = loadable(() => import("./components/footer/footer"));
+const SectionSeparator = loadable(() =>
+  import("./components/section-separator/section-separator")
+);
+const Services = loadable(() => import("./components/services/services"));
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();

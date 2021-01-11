@@ -15,9 +15,11 @@ const Alexus = cloudinaryCore.url(
   "personal/natebaker.me/Reviewers/alexus-mcgriff_ulb7ja",
   {
     dpr: "auto",
-    responsive: true,
-    width: "auto",
-    crop: "scale",
+    width: "300",
+    height: "300",
+    crop: "fit",
+    quality: "auto",
+    format: "WebP",
     responsive_use_breakpoints: true,
   }
 );
@@ -25,9 +27,11 @@ const Olivia = cloudinaryCore.url(
   "personal/natebaker.me/Reviewers/olivia-starnes_hmqb4q",
   {
     dpr: "auto",
-    responsive: true,
-    width: "auto",
+    width: "300",
+    height: "300",
     crop: "scale",
+    quality: "auto",
+    format: "WebP",
     responsive_use_breakpoints: true,
   }
 );
@@ -35,9 +39,11 @@ const Thomas = cloudinaryCore.url(
   "personal/natebaker.me/Reviewers/thomas-hoang_kz7w8s",
   {
     dpr: "auto",
-    responsive: true,
-    width: "auto",
+    width: "300",
+    height: "300",
     crop: "scale",
+    quality: "auto",
+    format: "WebP",
     responsive_use_breakpoints: true,
   }
 );

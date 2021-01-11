@@ -10,6 +10,7 @@ const Nate = cloudinaryCore.url(
     responsive: true,
     width: "auto",
     crop: "scale",
+    format: "Webp",
     responsive_use_breakpoints: true,
   }
 );
@@ -20,6 +21,7 @@ const NateDark = cloudinaryCore.url(
     responsive: true,
     width: "auto",
     crop: "scale",
+    format: "Webp",
     responsive_use_breakpoints: true,
   }
 );
