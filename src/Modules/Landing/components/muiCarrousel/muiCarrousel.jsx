@@ -5,12 +5,42 @@ import Typography from "@material-ui/core/Typography";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import Olivia from "../../../../assets/images/olivia-starnes.jpeg";
-import Alexus from "../../../../assets/images/alexus-mcgriff.PNG";
-import Thomas from "../../../../assets/images/thomas-hoang.jpeg";
 
 import { useStyles } from "./styles";
 import { Grid, Avatar } from "@material-ui/core";
+import { Cloudinary } from "cloudinary-core";
+
+const cloudinaryCore = new Cloudinary({ cloud_name: "mibase", secure: true });
+const Alexus = cloudinaryCore.url(
+  "personal/natebaker.me/Reviewers/alexus-mcgriff_ulb7ja",
+  {
+    dpr: "auto",
+    responsive: true,
+    width: "auto",
+    crop: "scale",
+    responsive_use_breakpoints: true,
+  }
+);
+const Olivia = cloudinaryCore.url(
+  "personal/natebaker.me/Reviewers/olivia-starnes_hmqb4q",
+  {
+    dpr: "auto",
+    responsive: true,
+    width: "auto",
+    crop: "scale",
+    responsive_use_breakpoints: true,
+  }
+);
+const Thomas = cloudinaryCore.url(
+  "personal/natebaker.me/Reviewers/thomas-hoang_kz7w8s",
+  {
+    dpr: "auto",
+    responsive: true,
+    width: "auto",
+    crop: "scale",
+    responsive_use_breakpoints: true,
+  }
+);
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 

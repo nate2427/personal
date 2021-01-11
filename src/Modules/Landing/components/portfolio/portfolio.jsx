@@ -1,30 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 
 import { useStyles } from "./styles";
 import SectionHeader from "../section-header/section-header";
 import { portfolioContent as content } from "./content";
-import Axios from "axios";
-import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import gsap from "gsap";
-import { Image, Transformation } from "cloudinary-react";
+import { Image } from "cloudinary-react";
 
 export default function () {
   const classes = useStyles();
-  const [links, setLinks] = useState([]);
-  useEffect(() => {
-    window.iframely && window.iframely.load();
-    Axios.get(
-      "https://iframe.ly/api/oembed?url=http://www.natebaker.me&api_key=24f3c852a5f6bdcefc17d1&iframe=card"
-    )
-      .then((data) => {
-        links.push(data);
-        setLinks([...links]);
-      })
-      .catch((err) => {});
-    // eslint-disable-next-line
-  }, []);
+
   return (
     <Grid
       container
@@ -111,6 +97,7 @@ const PortfolioCard = ({ url, publicId, alt, showURL, delay }) => {
               responsive
               width="auto"
               crop="scale"
+              loading="lazy"
               responsiveUseBreakpoints="true"
               alt={alt}
               publicID={publicId}

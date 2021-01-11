@@ -1,8 +1,28 @@
 import { makeStyles } from "@material-ui/core";
-import Nate from "../../../../assets/images/nate-professional.png";
-import NateDark from "../../../../assets/images/nate-professional-dark.png";
-// import NateMobile from "../../../../assets/images/nate-professional-mobile.png";
-// import NateMobileDark from "../../../../assets/images/nate-professional-dark-mobile.png";
+
+import { Cloudinary } from "cloudinary-core";
+
+const cloudinaryCore = new Cloudinary({ cloud_name: "mibase", secure: true });
+const Nate = cloudinaryCore.url(
+  "personal/natebaker.me/Reviewers/nate-professional_rko4op",
+  {
+    dpr: "auto",
+    responsive: true,
+    width: "auto",
+    crop: "scale",
+    responsive_use_breakpoints: true,
+  }
+);
+const NateDark = cloudinaryCore.url(
+  "personal/natebaker.me/Reviewers/nate-professional-dark_e6tpkp",
+  {
+    dpr: "auto",
+    responsive: true,
+    width: "auto",
+    crop: "scale",
+    responsive_use_breakpoints: true,
+  }
+);
 
 export const useStyles = makeStyles((theme) => ({
   container: {
