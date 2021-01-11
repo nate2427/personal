@@ -8,6 +8,7 @@ import Axios from "axios";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import gsap from "gsap";
+import { Image, Transformation } from "cloudinary-react";
 
 export default function () {
   const classes = useStyles();
@@ -37,7 +38,7 @@ export default function () {
     >
       <SectionHeader title="Portfolio" description="Skilled & Experienced" />
       <Grid container item xs={12} lg={10} justify="center">
-        {content.links.map(({ url, imgLink, alt, showURL }, key) => {
+        {content.links.map(({ url, imgLink, alt, showURL, publicId }, key) => {
           return (
             <PortfolioCard
               url={url}
@@ -46,6 +47,7 @@ export default function () {
               alt={alt}
               showURL={showURL}
               delay={key}
+              publicId={publicId}
             />
           );
         })}
@@ -54,7 +56,7 @@ export default function () {
   );
 }
 
-const PortfolioCard = ({ url, imgLink, alt, showURL, delay }) => {
+const PortfolioCard = ({ url, publicId, alt, showURL, delay }) => {
   const [ref, inView] = useInView({ threshold: 0.3 });
   let cardRef = React.useRef(null);
   const [hasAnimated, setHasAnimated] = React.useState(false);
@@ -103,7 +105,15 @@ const PortfolioCard = ({ url, imgLink, alt, showURL, delay }) => {
       <div ref={ref}>
         <div ref={cardRef}>
           <div className={classes.portImgCardContainer}>
-            <img className={classes.img} src={imgLink} alt={alt} />
+            <Image
+              className={`${classes.img} cld-responsive`}
+              // src={imgLink}
+              alt={alt}
+              publicID={publicId}
+              cloudName="mibase"
+            >
+              <Transformation width="auto" crop="scale" />
+            </Image>
           </div>
           <Typography align="center" className={classes.cardName} variant="h4">
             {showURL}

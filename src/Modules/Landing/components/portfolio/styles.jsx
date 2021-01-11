@@ -42,7 +42,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: "-.5rem",
     padding: "2rem 0",
-    textTransform: "uppercase",
+    textTransform: "capitalize",
     fontSize: "2rem",
     fontFamily: "Merriweather",
     fontWeight: "bold",
@@ -51,5 +51,8 @@ export const useStyles = makeStyles((theme) => ({
         ? "0 4px 8px 0 rgba(255,255,255,0.4)"
         : "0 4px 8px 0 rgba(0,0,0,0.2)",
     color: "#242f46",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.25rem",
+    },
   },
 }));
