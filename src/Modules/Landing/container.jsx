@@ -20,21 +20,24 @@ import loadable from "@loadable/component";
 import { ThemeContext } from "../../App";
 import { links as navLinks } from "./navbarLinks";
 import { useStyles } from "./styles";
-
 // components of the landing page
-const About = loadable(() => import("./components/about/about"));
-const Hero = loadable(() => import("./components/hero/hero"));
+
+import Hero from "./components/hero/hero";
+import About from "./components/about/about";
+
+// lazy loaded pages
+// const About = loadable(() => import('./components/about/about'))
 const Resume = loadable(() => import("./components/resume/resume"));
-const Portfolio = loadable(() => import("./components/portfolio/portfolio"));
-const Testimonials = loadable(() =>
-  import("./components/testimonials/testimonials")
-);
-const Contact = loadable(() => import("./components/contact/contact"));
-const Footer = loadable(() => import("./components/footer/footer"));
+const Services = loadable(() => import("./components/services/services"));
 const SectionSeparator = loadable(() =>
   import("./components/section-separator/section-separator")
 );
-const Services = loadable(() => import("./components/services/services"));
+const Testimonials = loadable(() =>
+  import("./components/testimonials/testimonials")
+);
+const Portfolio = loadable(() => import("./components/portfolio/portfolio"));
+const Contact = loadable(() => import("./components/contact/contact"));
+const Footer = loadable(() => import("./components/footer/footer"));
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -49,7 +52,6 @@ export default function PersistentDrawerLeft() {
   };
 
   const handleDrawerClose = () => {
-    console.log("made it");
     setOpen(false);
   };
 

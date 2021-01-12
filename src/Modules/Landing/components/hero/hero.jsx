@@ -34,7 +34,7 @@ export default function () {
             </Typography>
           </Grid>
           <Grid item xs={12} className={`${classes.heroSpacing}`}>
-            <Typography className={`${classes.name}`} variant="h3">
+            <Typography className={`${classes.name}`} variant="h1">
               Nate <br /> Baker
             </Typography>
           </Grid>
@@ -42,11 +42,11 @@ export default function () {
             <Divider className={`${classes.heroDivider}`} />
           </Grid>
           <Grid className={`${classes.heroSpacing}`} item xs={12}>
-            <TextLoop>
-              <h4 className={`${classes.occupation}`}>Coding Tutor</h4>
-              <h4 className={`${classes.occupation}`}>Software Engineer</h4>
-              <h4 className={`${classes.occupation}`}>Automation Creator</h4>
-              <h4 className={`${classes.occupation}`}>Motivational Speaker</h4>
+            <TextLoop >
+              <h2 className={`${classes.occupation}`}>Coding Tutor</h2>
+              <h2 className={`${classes.occupation}`}>Software Engineer</h2>
+              <h2 className={`${classes.occupation}`}>Automation Creator</h2>
+              <h2 className={`${classes.occupation}`}>Motivational Speaker</h2>
             </TextLoop>
           </Grid>
         </Grid>

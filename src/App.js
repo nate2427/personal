@@ -2,7 +2,8 @@ import React from "react";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./Modules/Landing/landing";
-import { Paper, ThemeProvider, createMuiTheme } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/esm";
 
 export const ThemeContext = React.createContext();
 

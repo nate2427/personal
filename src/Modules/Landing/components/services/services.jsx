@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
+import { Grid, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/esm";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 import BugReportOutlinedIcon from "@material-ui/icons/BugReportOutlined";
 import ContactPhoneOutlinedOutlinedIcon from "@material-ui/icons/ContactPhoneOutlined";

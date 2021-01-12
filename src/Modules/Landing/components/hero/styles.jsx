@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/esm";
 import { Cloudinary } from "cloudinary-core";
 
 const cloudinaryCore = new Cloudinary({ cloud_name: "mibase", secure: true });

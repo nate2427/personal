@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/esm";
 export const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: theme.palette.type === "dark" ? "#121212" : "#f5f5f5",
